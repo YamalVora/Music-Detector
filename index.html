@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Pitch Detector</h1>
+            <p>Accurate Real-Time Tuner</p>
+        </header>
+
+        <div class="tuner-card">
+            <div class="tuning-ring" id="tuning-ring">
+                <div class="note-display" id="note-display">--</div>
+            </div>
+            
+            <div class="details">
+                <div class="cent-display" id="cent-display">Click start to begin</div>
+                <div class="freq-display" id="freq-display">0.00 Hz</div>
+            </div>
+            
+            <button id="start-btn" onclick="initMic()">Start Microphone</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+:root {
+    --bg-color: #0d0d0f;
+    --card-bg: #1a1a20;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent: #6366f1;
+    --success: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.tuner-card {
+    background: var(--card-bg);
+    width: 100%;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tuning-ring {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.tuning-ring.in-tune {
+    border-color: var(--success);
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.2), inset 0 0 25px rgba(16, 185, 129, 0.1);
+}
+
+.note-display {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    color: var(--text-primary);
+}
+
+.details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 50px;
+}
+
+.cent-display {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.in-tune + .details .cent-display {
+    color: var(--success);
+}
+
+.freq-display {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    font-variant-numeric: tabular-nums;
+}
+
+button {
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
