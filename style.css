@@ -30,41 +30,42 @@ body {
     gap: 2rem;
     width: 100%;
     max-width: 400px;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 header {
     text-align: center;
+    padding: 0 1rem;
 }
 
 header h1 {
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
     letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
 }
 
 header p {
     color: var(--text-secondary);
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 4vw, 0.875rem);
 }
 
 .tuner-card {
     background: var(--card-bg);
     width: 100%;
-    padding: 3rem 2rem;
+    padding: clamp(1.5rem, 6vw, 3rem) clamp(1rem, 5vw, 2rem);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 5vw, 2.5rem);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tuning-ring {
-    width: 160px;
-    height: 160px;
+    width: clamp(120px, 40vw, 160px);
+    height: clamp(120px, 40vw, 160px);
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.05);
     background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
@@ -80,7 +81,7 @@ header p {
 }
 
 .note-display {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
     font-weight: 300;
     letter-spacing: -0.05em;
     color: var(--text-primary);
@@ -92,12 +93,14 @@ header p {
     flex-direction: column;
     gap: 0.5rem;
     min-height: 50px;
+    width: 100%;
 }
 
 .cent-display {
-    font-size: 1.125rem;
+    font-size: clamp(0.9rem, 4.5vw, 1.125rem);
     color: var(--text-secondary);
     font-weight: 400;
+    word-wrap: break-word;
 }
 
 .in-tune + .details .cent-display {
@@ -105,7 +108,7 @@ header p {
 }
 
 .freq-display {
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 3.5vw, 0.875rem);
     color: var(--text-secondary);
     opacity: 0.6;
     font-variant-numeric: tabular-nums;
@@ -115,16 +118,33 @@ button {
     background: var(--text-primary);
     color: var(--bg-color);
     border: none;
-    padding: 0.875rem 2rem;
+    padding: clamp(0.75rem, 3vw, 0.875rem) clamp(1.5rem, 6vw, 2rem);
     border-radius: 100px;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.875rem);
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
     box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
 }
 
 button:hover {
     transform: scale(1.05);
     opacity: 0.9;
+}
+
+/* Base adjustment for extra small screens ensuring absolute max limit */
+@media screen and (max-width: 350px) {
+    .app-container {
+        padding: 1rem;
+    }
+    
+    .tuner-card {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .tuning-ring {
+        border-width: 2px;
+    }
 }
