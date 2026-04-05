@@ -190,11 +190,8 @@ async function initMic() { //this is async function so it will wait for the user
                 document.getElementById("tuning-ring").classList.remove("in-tune");
             }
         } else {
-            smoothedFrequency = 0; // reset smoothing if silence
-            document.getElementById("note-display").innerText = "--";
-            document.getElementById("cent-display").innerText = "Waiting for audio...";
-            document.getElementById("freq-display").innerText = "0.00 Hz";
-            document.getElementById("tuning-ring").classList.remove("in-tune");
+            smoothedFrequency = 0; // reset smoothing if silence so the next note snaps instantly
+            // The UI is deliberately NOT reset here so the last note remains visible
         }
         //detect pitch will find repeating patterns nad return the frequency in hertz
         //and we also know frequency = sampleRate/period
